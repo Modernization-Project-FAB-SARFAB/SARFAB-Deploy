@@ -29,7 +29,8 @@ services:
       context: ./api
     container_name: api-sarfab
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - JWT_KEY=${JWT_KEY}

@@ -12,8 +12,5 @@ export default defineConfig({
   },
   optimizeDeps: {
     exclude: ['js-big-decimal']
-  },
-  define: {
-    'import.meta.env': process.env
   }
 })

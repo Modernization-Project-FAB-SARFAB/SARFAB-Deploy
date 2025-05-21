@@ -8,6 +8,7 @@ RUN dotnet publish "Modernization-SARFAB-Backend.WebAPI/Modernization-SARFAB-Bac
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+ENV ASPNETCORE_URLS=http://0.0.0.0:80
 COPY --from=build /app/publish .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "Modernization-SARFAB-Backend.WebAPI.dll"]
