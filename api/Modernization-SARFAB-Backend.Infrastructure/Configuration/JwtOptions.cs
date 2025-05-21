@@ -1,4 +1,4 @@
-namespace Modernization_SARFAB_Backend.WebAPI.Configuration;
+namespace Modernization_SARFAB_Backend.Infrastructure.Configuration;
 
 public class JwtOptions
 {
