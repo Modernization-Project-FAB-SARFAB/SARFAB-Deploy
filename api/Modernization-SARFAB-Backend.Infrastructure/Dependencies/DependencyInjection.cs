@@ -54,11 +54,12 @@ namespace Modernization_SARFAB_Backend.Infrastructure.Dependencies
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             // DbContext
+            var serverVersion = new MySqlServerVersion(new Version(8, 0, 36));
             services.AddDbContext<SARFABSystemDbContext>(options =>
                 options.UseMySql(
                     configuration.GetConnectionString("DefaultConnection"),
-                    ServerVersion.AutoDetect(configuration.GetConnectionString("DefaultConnection")),
-                    mySqlOptions => mySqlOptions.EnableRetryOnFailure()));
+                    serverVersion,
+                    mySqlOpts => mySqlOpts.EnableRetryOnFailure()));
 
             // Authentication
             services.AddScoped<IUserRepository, UserRepository>();
