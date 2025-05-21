@@ -273,10 +273,6 @@ namespace Modernization_SARFAB_Backend.Infrastructure.Dependencies
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
-            services.AddControllers().AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-            });
             return services;
         }
     }

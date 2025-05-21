@@ -76,6 +76,9 @@ try
                 };
                 return new BadRequestObjectResult(result);
             };
+        }).AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
         });
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

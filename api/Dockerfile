@@ -4,12 +4,10 @@ WORKDIR /src
 COPY . .
 
 RUN dotnet restore "Modernization-SARFAB-Backend.WebAPI.sln"
-RUN dotnet publish "Modernization-SARFAB-Backend.WebAPI/Modernization-SARFAB-Backend.WebAPI.csproj" \
-    -c Release -o /app/publish --no-restore -p:TreatWarningsAsErrors=false
+RUN dotnet publish "Modernization-SARFAB-Backend.WebAPI/Modernization-SARFAB-Backend.WebAPI.csproj" -c Release -o /app/publish
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-ENV ASPNETCORE_URLS=http://0.0.0.0:80
 COPY --from=build /app/publish .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "Modernization-SARFAB-Backend.WebAPI.dll"]

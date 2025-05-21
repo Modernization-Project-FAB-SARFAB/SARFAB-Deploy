@@ -28,6 +28,7 @@ services:
     build:
       context: ./api
     container_name: api-sarfab
+    restart: unless-stopped
     depends_on:
       db:
         condition: service_healthy
@@ -47,6 +48,7 @@ services:
       args:
         VITE_API_URL: ${VITE_API_URL}
     container_name: frontend-sarfab
+    restart: unless-stopped
     ports:
       - "3000:80"
     depends_on:
