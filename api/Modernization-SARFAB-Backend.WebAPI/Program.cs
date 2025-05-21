@@ -145,10 +145,10 @@ try
         app.UseSwagger();
         app.UseSwaggerUI();
     }
-    else
-    {
-        app.UseHttpsRedirection();
-    }
+    // else
+    // {
+    //     app.UseHttpsRedirection();
+    // }
 
     using (var scope = app.Services.CreateScope())
     {
