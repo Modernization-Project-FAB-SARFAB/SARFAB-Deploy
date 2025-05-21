@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using Modernization_SARFAB_Backend.Infrastructure.Dependencies;
 using Modernization_SARFAB_Backend.Infrastructure.Persistence.Contexts;
 using Modernization_SARFAB_Backend.WebAPI.Middleware;
+using Microsoft.EntityFrameworkCore;
 using Modernization_SARFAB_Backend.WebAPI.Configuration;
 using Serilog;
 using Serilog.Events;
