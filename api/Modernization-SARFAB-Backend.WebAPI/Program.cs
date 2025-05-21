@@ -44,7 +44,10 @@ try
         opts.Password = Environment.GetEnvironmentVariable("SMTP_PASSWORD") ?? "";
     });
 
-    var jwtOptions = builder.Configuration.GetSection("Jwt").Get<JwtOptions>();
+    var jwtOptions = new JwtOptions();
+builder.Configuration.GetSection("Jwt").Bind(jwtOptions);
+jwtOptions.Key = Environment.GetEnvironmentVariable("JWT_KEY") ?? "";
+
 
     if (string.IsNullOrEmpty(jwtOptions.Key))
         throw new InvalidOperationException("JWT_KEY no está definido.");
