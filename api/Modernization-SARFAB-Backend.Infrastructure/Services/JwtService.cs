@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Modernization_SARFAB_Backend.Application.Interfaces.Authentication;
 using Modernization_SARFAB_Backend.Domain.Entities.Authentication;
+using Modernization_SARFAB_Backend.WebAPI.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -10,31 +11,31 @@ namespace Modernization_SARFAB_Backend.Infrastructure.Services
 {
     public class JwtService : ITokenService
     {
-        private readonly IConfiguration _configuration;
+        private readonly JwtOptions _jwtOptions;
 
-        public JwtService(IConfiguration configuration)
+        public JwtService(IOptions<JwtOptions> jwtOptions)
         {
-            _configuration = configuration;
+            _jwtOptions = jwtOptions.Value;
         }
 
         public string GenerateToken(UserEntity user)
         {
             var claims = new[]
             {
-           new Claim(ClaimTypes.Name, user.Username),
-           new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-       };
+                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            };
 
-            var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var keyBytes = Encoding.UTF8.GetBytes(_jwtOptions.Key);
+            var securityKey = new SymmetricSecurityKey(keyBytes);
 
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var creds = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: _configuration["Jwt:Issuer"],
-                audience: _configuration["Jwt:Audience"],
+                issuer: _jwtOptions.Issuer,
+                audience: _jwtOptions.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddHours(1), // Cambie Now a UtcNow
+                expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: creds
             );
 
