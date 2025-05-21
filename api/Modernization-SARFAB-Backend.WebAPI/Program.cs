@@ -45,9 +45,8 @@ try
     });
 
     var jwtOptions = new JwtOptions();
-builder.Configuration.GetSection("Jwt").Bind(jwtOptions);
-jwtOptions.Key = Environment.GetEnvironmentVariable("JWT_KEY") ?? "";
-
+    builder.Configuration.GetSection("Jwt").Bind(jwtOptions);
+    jwtOptions.Key = Environment.GetEnvironmentVariable("JWT_KEY") ?? "";
 
     if (string.IsNullOrEmpty(jwtOptions.Key))
         throw new InvalidOperationException("JWT_KEY no está definido.");
@@ -144,6 +143,12 @@ jwtOptions.Key = Environment.GetEnvironmentVariable("JWT_KEY") ?? "";
     else
     {
         app.UseHttpsRedirection();
+    }
+
+    using (var scope = app.Services.CreateScope())
+    {
+        var db = scope.ServiceProvider.GetRequiredService<SARFABSystemDbContext>();
+        db.Database.Migrate();
     }
 
     app.UseCors("AllowFrontend");
