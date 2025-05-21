@@ -1,0 +1,26 @@
+# Backend (ASP.NET)
+api/**/bin/
+api/**/obj/
+api/**/logs/
+api/**/appsettings.*.json
+api/.vs/
+*.user
+*.suo
+
+# Frontend (Vite + Node)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# General
+.env
+.env.*
+docker-compose.override.yml
+*.log
+
+# Excluir backups, no scripts de base
+*.bak
+!mysql/init/*.sql
+
+# Editor
+.vscode/
