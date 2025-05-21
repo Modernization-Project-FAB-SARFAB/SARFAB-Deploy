@@ -2,7 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using Modernization_SARFAB_Backend.Application.Interfaces.Authentication;
 using Modernization_SARFAB_Backend.Domain.Entities.Authentication;
-using Modernization_SARFAB_Backend.WebAPI.Configuration;
+using Modernization_SARFAB_Backend.Infrastructure.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

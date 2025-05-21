@@ -4,7 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Modernization_SARFAB_Backend.Infrastructure.Dependencies;
 using Modernization_SARFAB_Backend.WebAPI.Middleware;
-using Modernization_SARFAB_Backend.WebAPI.Configuration;
+using Modernization_SARFAB_Backend.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 using System.Text;
