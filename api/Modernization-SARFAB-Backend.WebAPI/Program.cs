@@ -158,9 +158,9 @@ try
     // Security headers
     app.Use(async (ctx, next) =>
     {
-        ctx.Response.Headers.Add("X-Content-Type-Options", "nosniff");
-        ctx.Response.Headers.Add("X-Frame-Options", "DENY");
-        ctx.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+        ctx.Response.Headers.Append("X-Content-Type-Options", "nosniff");
+        ctx.Response.Headers.Append("X-Frame-Options", "DENY");
+        ctx.Response.Headers.Append("X-XSS-Protection", "1; mode=block");
         await next();
     });
 
