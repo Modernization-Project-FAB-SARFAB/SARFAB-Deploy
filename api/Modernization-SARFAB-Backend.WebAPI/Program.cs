@@ -8,6 +8,7 @@ using Modernization_SARFAB_Backend.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 using System.Text;
+using Microsoft.AspNetCore.RateLimiting;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
@@ -43,6 +44,12 @@ try
     {
         opts.Password = Environment.GetEnvironmentVariable("SMTP_PASSWORD") ?? "";
     });
+
+    // Rate Limiting
+    builder.Services.AddMemoryCache();
+    builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
+    builder.Services.AddInMemoryRateLimiting();
+    builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
     var jwtOptions = new JwtOptions();
     builder.Configuration.GetSection("Jwt").Bind(jwtOptions);
@@ -148,8 +155,18 @@ try
     //     app.UseHttpsRedirection();
     // }
 
+    // Security headers
+    app.Use(async (ctx, next) =>
+    {
+        ctx.Response.Headers.Add("X-Content-Type-Options", "nosniff");
+        ctx.Response.Headers.Add("X-Frame-Options", "DENY");
+        ctx.Response.Headers.Add("X-XSS-Protection", "1; mode=block");
+        await next();
+    });
+
     app.UseCors("AllowFrontend");
     app.UseMiddleware<ErrorHandlingMiddleware>();
+    app.UseIpRateLimiting();
     app.UseAuthentication();
     app.UseAuthorization();
     app.MapControllers();
