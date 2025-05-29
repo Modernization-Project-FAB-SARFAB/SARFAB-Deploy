@@ -24,3 +24,6 @@ docker-compose.override.yml
 
 # Editor
 .vscode/
+
+# .DS_Store
+.DS_Store
