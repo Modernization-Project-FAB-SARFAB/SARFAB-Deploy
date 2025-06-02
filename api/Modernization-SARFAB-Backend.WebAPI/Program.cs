@@ -8,6 +8,7 @@ using Modernization_SARFAB_Backend.Infrastructure.Configuration;
 using Serilog;
 using Serilog.Events;
 using System.Text;
+using AspNetCoreRateLimit;
 using Microsoft.AspNetCore.RateLimiting;
 
 Log.Logger = new LoggerConfiguration()
@@ -49,7 +50,6 @@ try
     builder.Services.AddMemoryCache();
     builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
     builder.Services.AddInMemoryRateLimiting();
-    builder.Services.AddSingleton<IRateLimitProcessor, AsyncKeyLockProcessingStrategy>();
     builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
     var jwtOptions = new JwtOptions();
