@@ -49,6 +49,7 @@ try
     builder.Services.AddMemoryCache();
     builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
     builder.Services.AddInMemoryRateLimiting();
+    builder.Services.AddSingleton<IRateLimitProcessor, AsyncKeyLockProcessingStrategy>();
     builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
     var jwtOptions = new JwtOptions();
