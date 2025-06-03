@@ -61,6 +61,7 @@ namespace Modernization_SARFAB_Backend.Infrastructure.Persistence.Repositories.A
 
             var queryable = _context.Users
                 .Include(u => u.Person)
+                .Where(u => u.UserId != 1)
                 .AsQueryable();
 
             queryable = queryable.OrderByDescending(o => o.CreatedAt);

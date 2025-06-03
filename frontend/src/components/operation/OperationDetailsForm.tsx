@@ -38,12 +38,12 @@ export default function OperationDetailsForm({
             name,
           }),
         ),
-        departments: operationContext.departments.map(
-          ({ departmentId, name }) => ({
-            id: departmentId,
-            name,
-          }),
-        ),
+        departments: operationContext.departments
+        .filter(({ departmentId }) => departmentId === 3)
+        .map(({ departmentId, name }) => ({
+          id: departmentId,
+          name,
+        })),
         provinces: operationContext.provinces.map(
           ({ provinceId, name, departmentId }) => ({
             id: provinceId,
