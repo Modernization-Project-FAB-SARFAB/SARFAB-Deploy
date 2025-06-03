@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `sarfab_db` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `sarfab_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `sarfab_db`;
 -- MySQL dump 10.13  Distrib 8.0.38, for macos14 (x86_64)
 --
