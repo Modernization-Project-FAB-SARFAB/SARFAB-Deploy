@@ -145,10 +145,10 @@ UNLOCK TABLES;
 LOCK TABLES `operation_category` WRITE;
 /*!40000 ALTER TABLE `operation_category` DISABLE KEYS */;
 INSERT INTO `operation_category` VALUES
-(1,'AGUA'),
-(2,'FUEGO'),
-(3,'AIRE'),
-(4,'TIERRA');
+(1,'Agua'),
+(2,'Fuego'),
+(3,'Aire'),
+(4,'Tierra');
 /*!40000 ALTER TABLE `operation_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
