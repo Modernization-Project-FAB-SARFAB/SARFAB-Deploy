@@ -87,6 +87,7 @@ try
         }).AddJsonOptions(options =>
         {
             options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
+            options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
         });
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
