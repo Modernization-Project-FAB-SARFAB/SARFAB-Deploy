@@ -183,5 +183,3 @@ INSERT INTO `operation_type` VALUES
 (21,'Sobrevivencia',4);
 /*!40000 ALTER TABLE `operation_type` ENABLE KEYS */;
 UNLOCK TABLES;
-
--- USUARIOS
