@@ -185,3 +185,15 @@ INSERT INTO `operation_type` VALUES
 (21,'Sobrevivencia',4);
 /*!40000 ALTER TABLE `operation_type` ENABLE KEYS */;
 UNLOCK TABLES;
+
+LOCK TABLES `storage` WRITE;
+/*!40000 ALTER TABLE `storage` DISABLE KEYS */;
+INSERT INTO `storage` VALUES (1,'Almacen SARFAB CBBA');
+/*!40000 ALTER TABLE `storage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+LOCK TABLES `shift` WRITE;
+/*!40000 ALTER TABLE `shift` DISABLE KEYS */;
+INSERT INTO `shift` VALUES (1,'Mañana'),(2,'Tarde'),(3,'Noche');
+/*!40000 ALTER TABLE `shift` ENABLE KEYS */;
+UNLOCK TABLES;
