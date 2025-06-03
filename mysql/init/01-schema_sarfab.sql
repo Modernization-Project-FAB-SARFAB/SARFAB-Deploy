@@ -1,3 +1,4 @@
+/*!40101 SET NAMES utf8mb4 */;
 CREATE DATABASE IF NOT EXISTS `sarfab_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `sarfab_db`;
 -- MySQL dump 10.13  Distrib 8.0.38, for macos14 (x86_64)

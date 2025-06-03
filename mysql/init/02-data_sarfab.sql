@@ -1,3 +1,5 @@
+/*!40101 SET NAMES utf8mb4 */;
+
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
 INSERT INTO `person` VALUES (1,'Luis','Lovera',1,NULL,'2025-02-09 19:03:03','2025-02-09 19:03:03');
