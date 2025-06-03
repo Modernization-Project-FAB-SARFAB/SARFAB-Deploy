@@ -11,8 +11,13 @@ namespace Modernization_SARFAB_Backend.Application.UseCases.Personnel.VolunteerM
         private readonly ILoggingService _loggingService;
         private static readonly List<string> VolunteerGrades = new()
         {
-            "1er Año", "2do Año", "3er Año", "Rescatista"
+            "Rescatista Inicial",
+            "Rescatista Segundo",
+            "Rescatista Primero",
+            "Rescatista Master",
+            "Rescatista Comando"
         };
+
         private readonly IItemRepository _itemRepository;
 
         public PromoteVolunteerUseCase(IVolunteerGradePromotionRepository repository, ILoggingService loggingService, IItemRepository itemRepository)

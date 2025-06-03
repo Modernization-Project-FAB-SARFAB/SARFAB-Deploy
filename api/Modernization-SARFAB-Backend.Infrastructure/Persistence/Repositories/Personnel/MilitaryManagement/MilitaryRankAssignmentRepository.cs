@@ -16,8 +16,9 @@ namespace Modernization_SARFAB_Backend.Infrastructure.Persistence.Repositories.P
 
         private static readonly List<string> NonCommissionedRanks = new()
         {
-            "Sargento", "Sargento Segundo", "Sargento Primero", "Suboficial", "Suboficial Segundo",
-            "Suboficial Primero", "Suboficial Mayor", "Suboficial Maestro"
+            "Sargento Inicial", "Sargento Segundo", "Sargento Primero",
+            "Suboficial Inicial", "Suboficial Segundo", "Suboficial Primero",
+            "Suboficial Mayor", "Suboficial Maestre"
         };
 
         public MilitaryRankAssignmentRepository(SARFABSystemDbContext context)
