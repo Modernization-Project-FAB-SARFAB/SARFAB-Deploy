@@ -2,20 +2,22 @@
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'Luis','Lovera',1,NULL,'2025-02-09 19:03:03','2025-02-09 19:03:03');
+INSERT INTO `person` VALUES (1,'Luis','Lovera',1,NULL,'2025-02-09 19:03:03','2025-02-09 19:03:03'),
+                            (2, 'Diego Edson', 'Moruno Farfan', 1, NULL, '2025-06-11 19:03:03', '2025-06-11 19:03:03');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
--- LOCK TABLES `military` WRITE;
--- /*!40000 ALTER TABLE `military` DISABLE KEYS */;
--- INSERT INTO `military` VALUES (1,'7842932',1,1,'2025-02-09 19:04:59','2025-02-12 02:16:41');
--- /*!40000 ALTER TABLE `military` ENABLE KEYS */;
--- UNLOCK TABLES;
+LOCK TABLES `military` WRITE;
+/*!40000 ALTER TABLE `military` DISABLE KEYS */;
+INSERT INTO `military` VALUES (2,'72780891',1,1,'2025-06-11 19:04:59','2025-06-11 02:16:41');
+/*!40000 ALTER TABLE `military` ENABLE KEYS */;
+UNLOCK TABLES;
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` 
-VALUES (1,1,'admin','$2a$12$cEVDVuXx/8uDAV7W41z.beSUPqaMPgpnituKITFhKHZkiRq3o9JiW','lovera2luis@gmail.com',1,0,1,'2025-02-19 22:48:30','2025-04-05 22:22:25');
+VALUES (1,1,'admin','$2a$12$cEVDVuXx/8uDAV7W41z.beSUPqaMPgpnituKITFhKHZkiRq3o9JiW','lovera2luis@gmail.com',1,0,1,'2025-02-19 22:48:30','2025-04-05 22:22:25'),
+        (2, 2, 'Dogo', '$2a$12$RG1Sre1H0xRD8lBxoq7nVu5/Ub5yEcDdQaTihXsDOl.EAmiyGKQhe', 'diegoedsonmorunofarfan@gmail.com', 1, 0, 1, '2025-06-11 19:03:03', '2025-06-11 19:03:03');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
