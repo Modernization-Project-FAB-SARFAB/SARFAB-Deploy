@@ -37,8 +37,7 @@ namespace Modernization_SARFAB_Backend.Application.UseCases.Authentication.UserM
                 var replacements = new Dictionary<string, string>
                 {
                     {"{{TITTLE}}", "Recuperación de contraseña"},
-                    { "{{PASSWORD}}", password },
-                    { "{{LINK}}", "google.com" }
+                    { "{{PASSWORD}}", password }
                 };
 
                 // Obtener la plantilla con los datos reemplazados
