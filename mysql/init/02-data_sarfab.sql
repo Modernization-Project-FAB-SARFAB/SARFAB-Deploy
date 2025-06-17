@@ -199,3 +199,9 @@ LOCK TABLES `shift` WRITE;
 INSERT INTO `shift` VALUES (1,'Mañana'),(2,'Tarde'),(3,'Noche');
 /*!40000 ALTER TABLE `shift` ENABLE KEYS */;
 UNLOCK TABLES;
+
+LOCK TABLES `military_rank_assignment` WRITE;
+/*!40000 ALTER TABLE `military_rank_assignment` DISABLE KEYS */;
+INSERT INTO `military_rank_assignment` VALUES (1,2,9,1,'2025-06-11 13:35:53','2025-06-11 13:35:53');
+/*!40000 ALTER TABLE `military_rank_assignment` ENABLE KEYS */;
+UNLOCK TABLES;
