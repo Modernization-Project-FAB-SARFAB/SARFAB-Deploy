@@ -28,7 +28,7 @@ Log.Logger = new LoggerConfiguration()
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-    builder.WebHost.UseUrls("http://0.0.0.0:80");
+    builder.WebHost.UseUrls("http://0.0.0.0:5000");
     builder.Host.UseSerilog();
 
     builder.Services.AddInfrastructure(builder.Configuration);
